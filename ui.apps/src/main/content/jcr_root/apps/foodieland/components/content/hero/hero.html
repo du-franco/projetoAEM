@@ -1,0 +1,46 @@
+<!--/*
+This is the exact same code as the pure HTL example. The difference is
+we are now using a sling model for the business logic. This allows for 
+cleaner presentation and this component can be exported as json 
+for a headless CMS solution.
+
+Make sure you install the foodieland-bundle.zip if you have not already.
+
+*/-->
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.hero="com.adobe.aem.guides.foodieland.core.models.Hero" data-sly-test.hasContent="${hero.imagePath}"
+    class="cmp-hero">
+
+    <div class="cmp-teaser">
+        <div class="cmp-teaser__image">
+            <img class="cmp-image__image" style="width: 660px; height: 640px" src="${hero.imagePath}"
+                itemprop="contentUrl" data-cmp-hook-image="image" alt="${hero.alt}">
+        </div>
+
+
+        <!--/* Content that will be displayed if it's set in the dialog */-->
+        <div class="cmp-teaser__content">
+            <div class="cmp-teaser__hotRecipes">${hero.hotRecipes}</div>
+            <h2 class="cmp-teaser__title">${hero.title}</h2>
+            <div class="cmp-teaser__description">${hero.heading}</div>
+            <div class="cmp-teaser__mainIngredient">${hero.mainIngredient}</div>
+            <div class="cmp-teaser__prepareTime">${hero.prepareTime}</div>
+            <div class="cmp-teaser__author">${hero.author}</div>
+            <div class="cmp-teaser__date">${hero.date}</div>
+            <div class="cmp-teaser__image2">
+                <img class="cmp-image__image2" style="width: 50px; height: 50px" src="${hero.fileReference2}"
+                    itemprop="contentUrl" data-cmp-hook-image="image2" alt="${hero.alt}">
+            </div>
+            <div class="cmp-teaser__image3">
+                <img class="cmp-image__image3" style="width: 150px; height: 150px" src="${hero.fileReference3}"
+                    itemprop="contentUrl" data-cmp-hook-image="image3" alt="${hero.alt}">
+            </div>
+
+            <p class="cmp-teaser__action-container" data-sly-test="${hero.buttonLabel && hero.buttonLinkTo}">
+                <a class="cmp-teaser__action-link"
+                    href="${hero.buttonLinkTo @ extension = 'html'}">${hero.buttonLabel}</a>
+            </p>
+        </div>
+    </div>
+   
+</div>

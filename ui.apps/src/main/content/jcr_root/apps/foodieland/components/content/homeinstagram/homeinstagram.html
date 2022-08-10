@@ -1,0 +1,38 @@
+<!--/*
+This is the exact same code as the pure HTL example. The difference is
+we are now using a sling model for the business logic. This allows for 
+cleaner presentation and this component can be exported as json 
+for a headless CMS solution.
+
+Make sure you install the foodieland-bundle.zip if you have not already.
+
+*/-->
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.image="com.adobe.cq.wcm.core.components.models.Image"
+    data-sly-use.homeinstagram="com.adobe.aem.guides.foodieland.core.models.HomeInstagram" class="cmp-homeinstagram">
+
+    <div class="cmp-homeinstagram">
+
+        <!--/* Content that will be displayed if it's set in the dialog */-->
+        <div class="cmp-homeinstagram__content">
+            <h2 class="cmp-homeinstagram__title">${homeinstagram.title}</h2>
+            <div class="cmp-homeinstagram__description">${homeinstagram.heading}</div>
+        </div>
+
+        <p class="cmp-homeinstagram__action-container"
+            data-sly-test="${homeinstagram.buttonLabel && homeinstagram.buttonLinkTo}" style="font-size: 16px; border-radius: 16px; background: #000000; width: 180px; height: 60px;
+                    text-align: center;">
+            <a class="cmp-homeinstagram__action-link" href="${homeinstagram.buttonLinkTo @ extension = 'html'}"
+                style="color: white;">${homeinstagram.buttonLabel}</a>
+        </p>
+
+    </div>
+
+    <div
+        style="display: grid; align-items: center; justify-content: space-between; grid-template-columns: 1fr 1fr 1fr 1fr;">
+
+        <sly data-sly-resource="${'Simple Recipes' @ resourceType='wcm/foundation/components/parsys'}"></sly>
+
+    </div>
+
+</div>

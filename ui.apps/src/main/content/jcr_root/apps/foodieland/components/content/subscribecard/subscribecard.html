@@ -1,0 +1,48 @@
+<!--/*
+This is the exact same code as the pure HTL example. The difference is
+we are now using a sling model for the business logic. This allows for 
+cleaner presentation and this component can be exported as json 
+for a headless CMS solution.
+
+Make sure you install the foodieland-bundle.zip if you have not already.
+
+*/-->
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.subscribecard="com.adobe.aem.guides.foodieland.core.models.SubscribeCard"
+    data-sly-use.button="com.adobe.cq.wcm.core.components.models.form.Button" 
+    class="cmp-subscribecard">
+    
+
+    <!--/* Content that will be displayed if it's set in the dialog */-->
+    <div class="cmp-subscribecard__content">
+        <h2 class="cmp-subscribecard__titleSub">${subscribecard.titleSub}</h2>
+        <div class="cmp-subscribecard__description">${subscribecard.heading}</div>
+        <div class="cmp-subscribecard__image">
+            <img class="cmp-image__image" style="width: 409px; height: 400px" src="${subscribecard.fileReference}"
+                data-cmp-hook-image="image" alt="${subscribecard.alt}">
+        </div>
+        <div class="cmp-subscribecard__image2">
+            <img class="cmp-image__image2" style="width: 470px; height: 355px" src="${subscribecard.fileReference2}"
+                data-cmp-hook-image="image2" alt="${subscribecard.alt}">
+        </div>
+
+        <div class="">
+            <form method="" class="">
+
+                <div class="cmp-form-text">
+                    <input class="cmp-form-text__text" data-cmp-hook-form-text="input" type="email"
+                           placeholder="Your e-mail address..." name="email" required="" 
+                           style="border: 0.5px solid black; border-radius: 16px; width: 480px; height: 80px;">
+                </div>
+
+                <button type="${button.type}" id="${button.id}" class="cmp-form-button" name="${button.name}"
+                    value="${button.value}" 
+                    style="width: 160px; height: 60px; border-radius: 16px; background: #000000; color: white;">
+                    ${button.title}
+                </button>
+            </form>
+        </div>
+
+
+    </div>
+</div>

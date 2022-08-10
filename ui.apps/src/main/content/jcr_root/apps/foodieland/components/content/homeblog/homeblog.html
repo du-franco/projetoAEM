@@ -1,0 +1,34 @@
+<!--/*
+This is the exact same code as the pure HTL example. The difference is
+we are now using a sling model for the business logic. This allows for 
+cleaner presentation and this component can be exported as json 
+for a headless CMS solution.
+
+Make sure you install the foodieland-bundle.zip if you have not already.
+
+*/-->
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.image="com.adobe.cq.wcm.core.components.models.Image"
+    data-sly-use.homeblog="com.adobe.aem.guides.foodieland.core.models.HomeBlog" class="cmp-homeblog">
+
+    <div class="cmp-homeblog">
+
+        <a class="cmp-image--link" href="${image.link}">
+            <img class="cmp-image__image" style="width: 660px; height: 597px" src="${homeblog.fileReference}"
+                alt="${homeblog.alt}">
+        </a>
+
+        <!--/* Content that will be displayed if it's set in the dialog */-->
+        <div class="cmp-homeblog__content">
+            <h2 class="cmp-homeblog__title">${homeblog.title}</h2>
+            <div class="cmp-homeblog__description">${homeblog.heading}</div>
+        </div>
+
+        <p class="cmp-homeblog__action-container" data-sly-test="${homeblog.buttonLabel && homeblog.buttonLinkTo}"
+            style="font-size: 16px; border-radius: 16px; background: #000000; width: 180px; height: 60px;
+                    text-align: center;">
+            <a class="cmp-homeblog__action-link"
+                href="${homeblog.buttonLinkTo @ extension = 'html'}" style="color: white;">${homeblog.buttonLabel}</a>
+        </p>
+    </div>
+</div>

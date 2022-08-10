@@ -1,0 +1,30 @@
+<!--/*
+This is the exact same code as the pure HTL example. The difference is
+we are now using a sling model for the business logic. This allows for 
+cleaner presentation and this component can be exported as json 
+for a headless CMS solution.
+
+Make sure you install the foodieland-bundle.zip if you have not already.
+
+*/-->
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.simplerecipescard="com.adobe.aem.guides.foodieland.core.models.SimpleRecipesCard"
+    data-sly-use.image="com.adobe.cq.wcm.core.components.models.Image" class="cmp-simplerecipescard">
+
+    <div class="cmp-simplerecipescard">
+
+        <a class="cmp-image--link" href="${image.link}">
+            <img class="cmp-image__image" src="${simplerecipescard.fileReference}" alt="${simplerecipescard.alt}"
+                style="width: 368px; height: 250px">
+        </a>
+
+        <!--/* Content that will be displayed if it's set in the dialog */-->
+        <div class="cmp-simplerecipescard__content">
+            <div class="cmp-simplerecipescard__heartLike">${simplerecipescard.heartLike}</div>
+            <h5 class="cmp-simplerecipescard__title">${simplerecipescard.title}</h5>
+            <div class="cmp-simplerecipescard__mainIngredient">${simplerecipescard.mainIngredient}</div>
+            <div class="cmp-simplerecipescard__prepareTime">${simplerecipescard.prepareTime}</div>
+
+        </div>
+    </div>
+</div>

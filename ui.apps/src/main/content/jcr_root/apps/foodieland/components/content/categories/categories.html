@@ -1,0 +1,24 @@
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.categories="com.adobe.aem.guides.foodieland.core.models.CategoriesModel" class="cmp-categories">
+
+    <!--/* Content that will be displayed if it's set in the dialog */-->
+    <div class="cmp-categories__content">
+        <h2 class="cmp-categories__title">${categories.title}</h2>
+
+        <p class="cmp-categories__action-container"
+            data-sly-test="${categories.buttonLabel && categories.buttonLinkTo}" 
+            style="background: #E7FAFE; width: 193px; height: 60px;">
+            <a class="cmp-categories__action-link"
+                href="${categories.buttonLinkTo @ extension = 'html'}" style="border:30px solid #E7FAFE; color: black;">
+                ${categories.buttonLabel}</a>
+        </p>
+    </div>
+
+
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+
+        <sly data-sly-resource="${'Categories' @ resourceType='wcm/foundation/components/parsys'}"></sly>
+
+    </div>
+
+</div>

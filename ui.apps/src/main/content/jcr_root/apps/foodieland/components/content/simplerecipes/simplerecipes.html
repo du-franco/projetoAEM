@@ -1,0 +1,18 @@
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.recipes="com.adobe.aem.guides.foodieland.core.models.SimpleRecipes" class="cmp-simplerecipes">
+
+    <!--/* Content that will be displayed if it's set in the dialog */-->
+    <div class="cmp-simplerecipes__content">
+        <h2 class="cmp-simplerecipes__title">${recipes.title}</h2>
+
+        <p class="cmp-simplerecipes__text">${recipes.text}</p>
+    </div>
+
+
+    <div style="display: grid; align-items: center; justify-content: space-between; grid-template-columns: 1fr 1fr 1fr;">
+
+        <sly data-sly-resource="${'Simple Recipes' @ resourceType='wcm/foundation/components/parsys'}"></sly>
+
+    </div>
+
+</div>

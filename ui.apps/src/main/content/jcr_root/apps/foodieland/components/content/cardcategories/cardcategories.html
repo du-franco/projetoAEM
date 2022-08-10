@@ -1,0 +1,20 @@
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.image="com.adobe.cq.wcm.core.components.models.Image"
+    data-sly-use.card="com.adobe.aem.guides.foodieland.core.models.CardCategories" class="cmp-cardcategories">
+
+    <div class="cmp-cardcategories">
+        
+            <a class="cmp-image--link" href="${image.link}">
+                <img class="cmp-image__image" style="width: 180px; height: 202px" src="${card.fileReference}"
+                     alt="${card.alt}">
+            </a>
+
+        <!--/* Content that will be displayed if it's set in the dialog */-->
+        <div class="cmp-cardcategories__content">
+            <div class="cmp-cardcategories__cardName">${card.cardName}</div>
+
+        </div>
+
+    </div>
+
+</div>
